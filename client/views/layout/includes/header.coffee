@@ -8,7 +8,7 @@ Meteor.startup(() ->
 Template.header.events(
   'click #login': () ->
     $('#loginModal').modal('show')
-    Session.set('scenario', 'landingPage')
+    Session.set('scenario', 'home')
 
   'click #sign-up': () ->
     $('#signUpModal').modal('show')
@@ -21,5 +21,5 @@ Template.loggedInNav.helpers(
 
 Template.loggedInNav.events(
   'click #logOut': () ->
-    Meteor.logout(Router.go('landingPage'))
+    Meteor.logout()
 )

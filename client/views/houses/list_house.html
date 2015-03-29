@@ -1,0 +1,80 @@
+<template name="listHouse">
+    <div class="container-fluid list-house-header">
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <h1 class="text-center ">
+                    List Your House
+                </h1>
+                <h3 class="text-center">
+                    RentX makes it easy to rent out your house
+                </h3>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid list-house-form">
+        <div class="row">
+            <div class="col-md-12 column">
+                <form class="form-horizontal form-padding" id='listHouse' role="form">
+                    <div class="form-group">
+                        <label for="city" class="col-sm-2 control-label">City</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="city" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="housetype" class="col-sm-2 control-label">House Type</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" id="housetype">
+                                <option>Whole House</option>
+                                <option>Apartment/Flat</option>
+                                <option>Compound House</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="bedrooms" class="col-sm-2 control-label">Bed Rooms</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" id="bedrooms">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-default">Continue</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Benefits Section -->
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-6">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-key fa-stack-1x fa-inverse"></i>
+                    </span>
+                <h4 class="service-heading">Quick and Easy</h4>
+                <p class="text-muted">List your house on RentX and instantly have it exposed to thousands of potential tenants.
+                   You don't have to go through an agent and you don't have to pay excessive fees anymore.
+                    Renting can't be any more convenient</p>
+            </div>
+            <div class="col-md-6">
+                <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-check-square-o fa-stack-1x fa-inverse"></i>
+                </span>
+                <h4 class="service-heading">Choose your Tenant</h4>
+                <p class="text-muted">Decide on who to rent your house to by accessing the profiles of potential tenants who have expressed interest.
+                    You now have the information to decide on the best tenant for your house.</p>
+            </div>
+        </div>
+    </div>
+    <!--Benefits end -->
+</template>

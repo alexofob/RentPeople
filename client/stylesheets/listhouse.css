@@ -1,0 +1,23 @@
+.list-house-header {
+    padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+    padding-bottom: 50px;
+    text-align: center;
+    color: dimgray;
+}
+
+.list-house-form {
+    padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+    padding-bottom: 50px;
+    text-align: center;
+    color: dimgray;
+    background-color: #f8f8f8;
+}
+
+.center-img {
+    display: block;
+    margin: 10px auto;
+}
+
+.form-padding {
+    padding: 0 20%;
+}
