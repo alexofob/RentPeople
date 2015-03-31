@@ -6,30 +6,4 @@ template(name="loginModal")
                     button.close(type="button", data-dismiss="modal", aria-hidden="true") &#215;
                     h4.modal-title Please Log In
                 .modal-body
-                    +loginForm
-
-template(name="loginForm")
-    form#login-form(role="form")
-        fieldset
-            .form-group
-                input#login-email.form-control(type="email", placeholder="E-mail", name="email", autofocus="")
-            .form-group
-                input#login-password.form-control(type="password", placeholder="Password", name="password", value="")
-            if errorMessage
-                .row
-                    .col-sm-12.col-xs-12
-                        .alert.alert-danger
-                            | #{errorMessage}
-            if currentUserMessage
-                .row
-                    .col-sm-12.col-xs-12
-                        .alert.alert-success
-                            | #{currentUserMessage}
-            .row
-                .col-sm-4.col-xs-4
-                    input#login-button.btn-success.form-control(type="submit", value="Login")
-                .col-sm-2.col-xs-2.col-sm-offset-1.col-xs-offset-1
-                    p or
-                .col-sm-4.col-xs-4
-                    button#sign-up-button.btn.btn-link.form-control(type="button") Sign up
-
+                    +atForm

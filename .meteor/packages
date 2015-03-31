@@ -12,3 +12,6 @@ iron:router
 mquandalle:jade
 fortawesome:fontawesome
 accounts-password
+useraccounts:bootstrap
+accounts-facebook
+accounts-google
