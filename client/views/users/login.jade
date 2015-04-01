@@ -3,4 +3,11 @@ template(name="loginModal")
         .modal-dialog
             .modal-content
                 .modal-body
+                    button.close(type="button", data-dismiss="modal", aria-hidden="true") &#215;
                     +atForm
+
+template(name="logIn")
+    .container.page-header
+        .row
+            .col-md-6.col-md-offset-3
+                +atForm

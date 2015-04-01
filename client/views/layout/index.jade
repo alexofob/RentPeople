@@ -1,20 +1,9 @@
 template(name="mainLayout")
   +header
-  +page
+  +yield
   +loginModal
-  +signUpModal
   +footer
 
-template(name="notificationsElement")
-  li
-    a(href=href)
-      div
-        i.fa.fa-fw(class=icon)
-        | #{text}
-        span.pull-right.text-muted.small #{when}
-  li.divider
-
 template(name="page")
-  // Put page title and breadcrumbs here with `Router.routes[Session.get('active')]`
   +yield
 
