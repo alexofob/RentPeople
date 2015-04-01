@@ -9,9 +9,6 @@ Template.header.events(
   'click #login': () ->
     $('#loginModal').modal('show')
     Session.set('scenario', 'home')
-
-  'click #sign-up': () ->
-    $('#signUpModal').modal('show')
 )
 
 Template.loggedInNav.helpers(
