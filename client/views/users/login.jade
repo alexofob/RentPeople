@@ -7,7 +7,18 @@ template(name="loginModal")
                     +atForm
 
 template(name="logIn")
-    .container.page-header
+    .container.header-padding
         .row
             .col-md-6.col-md-offset-3
                 +atForm
+        .row
+            .col-md-6.col-md-offset-3
+                +benefitsLogin
+
+template(name="benefitsLogin")
+    span.fa-stack.fa-4x
+        i.fa.fa-circle.fa-stack-2x.text-primary
+        i.fa.fa-home.fa-stack-1x.fa-inverse
+    h4.service-heading Rent your dream house without the hassle
+
+
