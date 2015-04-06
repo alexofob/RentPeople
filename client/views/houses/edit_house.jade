@@ -1,0 +1,64 @@
+template(name="editHouse")
+    .row.clearfix.edit-house-header
+        .col-md-8
+            ul.list-inline
+                li
+                    a(href="{{pathFor 'listUserHouses'}}")
+                        span.glyphicon.glyphicon-arrow-left
+        .col-md-4.text-right
+            a(href="{{pathFor 'viewHouse' }}")
+                span.glyphicon.glyphicon-eye-open
+                | preview
+    .row
+        +container
+
+template(name="container")
+    #content-wrapper
+        .col-xs-6.col-sm-3.col-md-2(role="navigation")
+            +menuEditHouse
+        .col-xs-12.col-sm-9.col-md-10
+            +formEditHouse
+    +space
+
+template(name="menuEditHouse")
+    #side-bar(role="navigation")
+        +navElements
+
+template(name="formEditHouse")
+    .row
+      .col-md-12
+          h3.page-header Manage your listing: #{houseHeading}
+    .row
+      .col-md-8
+          .panel.panel-default
+                .panel-body
+                    .col-md-3
+                        h4 Pricing
+                        p.text-muted Set the price potential tenants will see for your listing
+                     .col-md-9
+                        +reactiveEditHouseForm
+
+template(name="navElements")
+    ul.nav.nav-pills.nav-stacked
+            li
+                a(href='#')
+                    p.lead Pricing
+            li
+                a(href='#')
+                    p.lead Listing Info
+            li
+                a(href='#')
+                    p.lead Photo
+            li
+                a(href='#')
+                    p.lead Location
+            li
+                a(href='#')
+                    p.lead Amenities
+
+template(name="space")
+  .row.clearfix.space
+    .col-md-12
+
+
+
