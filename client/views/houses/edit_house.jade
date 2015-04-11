@@ -1,16 +1,16 @@
 template(name="editHouse")
-    .row.clearfix.edit-house-header
-        .col-md-8
-            ul.list-inline
-                li
-                    a(href="{{pathFor 'listUserHouses'}}")
-                        span.glyphicon.glyphicon-arrow-left
-        .col-md-4.text-right
-            a(href="{{pathFor 'viewHouse' }}")
-                span.glyphicon.glyphicon-eye-open
-                | preview
-    .row
-        +container
+    .container-fluid
+        .row.clearfix.edit-house-header
+            .col-md-8
+                a(href="{{pathFor 'listUserHouses'}}")
+                    span.glyphicon.glyphicon-arrow-left
+                    | listings
+            .col-md-4.text-right
+                a(href="{{pathFor 'viewHouse' }}")
+                    span.glyphicon.glyphicon-eye-open
+                    | preview
+        .row
+            +container
 
 template(name="container")
     #content-wrapper
@@ -29,13 +29,13 @@ template(name="formEditHouse")
       .col-md-12
           h3.page-header Manage your listing: #{houseHeading}
     .row
-      .col-md-8
+      .col-md-9
           .panel.panel-default
                 .panel-body
-                    .col-md-3
+                    .col-md-4
                         h4 Pricing
                         p.text-muted Set the price potential tenants will see for your listing
-                     .col-md-9
+                     .col-md-8
                         +reactiveEditHouseForm
 
 template(name="navElements")

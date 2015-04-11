@@ -15,4 +15,6 @@ accounts-password
 useraccounts:bootstrap
 accounts-facebook
 accounts-google
+templates:forms
 audit-argument-checks
+sacha:spin

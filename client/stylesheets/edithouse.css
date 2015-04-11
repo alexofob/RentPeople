@@ -1,0 +1,38 @@
+.edit-house-header {
+    padding-top: 60px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+    padding-bottom: 0;
+    padding-left: 5%;
+    padding-right: 5%;
+    color: dimgray;
+    background-color: white;
+}
+
+
+#content-wrapper {
+    padding: 0 15px;
+    min-height: 568px;
+    background-color: #f8f8f8;
+
+}
+
+
+@media(min-width:768px) {
+    #page-wrapper {
+        position: inherit;
+        margin: 0 0 0 250px;
+        padding: 0 30px;
+        border-left: 1px solid #e7e7e7;
+    }
+    #side-bar {
+        z-index: 1;
+        position: absolute;
+        width: 200px;
+        margin-top: 100px;
+}
+
+}
+
+.space {
+    margin: 20px;
+    background-color: white;
+}

@@ -14,41 +14,7 @@
     <div class="container-fluid list-house-form">
         <div class="row">
             <div class="col-md-12 column">
-                <form class="form-horizontal form-padding" id='listHouse' role="form">
-                    <div class="form-group">
-                        <label for="city" class="col-sm-2 control-label">City</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="city" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="housetype" class="col-sm-2 control-label">House Type</label>
-                        <div class="col-sm-10">
-                            <select class="form-control" id="housetype">
-                                <option>Whole House</option>
-                                <option>Apartment/Flat</option>
-                                <option>Compound House</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="bedrooms" class="col-sm-2 control-label">Bed Rooms</label>
-                        <div class="col-sm-10">
-                            <select class="form-control" id="bedrooms">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-default">Continue</button>
-                        </div>
-                    </div>
-                </form>
+                {{> listHouseForm}}
             </div>
         </div>
     </div>
@@ -81,4 +47,114 @@
     </div>
 </div>
 <!--Benefits end -->
+</template>
+
+<!-- Wrapped input with form-wide schema -->
+<template name="listHouseForm">
+    {{#listHouseFormBlock schema=houseSchema action=action}}
+        {{> textInputHor field='city'}}
+        {{> selectInputHor field='houseType' options=houseTypes}}
+        {{> selectInputHor field='bedrooms' options=bedrooms}}
+    {{/listHouseFormBlock}}
+</template>
+
+<!-- Reusable input element -->
+<template name="textInputHor">
+    <div class="reactive-input-container">
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">{{label}}</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control reactive-element" placeholder="{{instructions}}"
+                       value={{value}}>
+            </div>
+        </div>
+
+
+            {{#if submitted}}
+
+                {{#if errorMessage}}
+                    <div class="col-sm-offset-2 col-sm-10 alert alert-danger" role="alert">{{errorMessage}}</div>
+                {{/if}}
+
+            {{/if}}
+
+
+    </div>
+</template>
+
+<!-- Reusable select element -->
+<template name="selectInputHor">
+    <div class="reactive-input-container">
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">{{label}}</label>
+            <div class="col-sm-10">
+                <select class="form-control reactive-element">
+                    {{#each this.options}}
+                        <option value={{this}}>{{this}}</option>
+                    {{/each}}
+                </select>
+            </div>
+        </div>
+
+        {{!-- Hide messages if the surrounding form was successfully submitted --}}
+        {{#unless success}}
+
+        {{!-- If submitted and not success, show error messages --}}
+            {{#if submitted}}
+
+                {{#if errorMessage}}
+                    <div class="col-sm-offset-2 col-sm-10 alert alert-danger" role="alert">{{errorMessage}}</div>
+                {{/if}}
+
+            {{/if}}
+
+        {{/unless}}
+
+    </div>
+</template>
+
+<!-- Reusable form block -->
+<template name="listHouseFormBlock">
+    <form class="form-horizontal form-padding" id='listHouse' role="form">
+
+
+        <div class="col-sm-offset-2 col-sm-10">
+
+            {{#if loading}}
+                {{> spinner}}
+            {{/if}}
+
+            {{#if invalid}}
+                <div class="alert alert-warning"><strong>Can't submit!</strong>
+                    There is <span class="badge">{{invalidCount}}</span> invalid field!
+                </div>
+            {{/if}}
+
+            {{#if failed}}
+                <div class="alert alert-danger">
+                    <strong>{{#if failedMessage}}{{failedMessage}}{{else}}There was a problem submitting the form!{{/if}}</strong>
+                </div>
+            {{/if}}
+
+            {{#if success}}
+                <div class="alert alert-success">
+                    <strong>Saved!</strong>
+                </div>
+            {{/if}}
+
+        </div>
+
+
+        {{!-- Using a helper to get form-level schema context --}}
+        {{> UI.contentBlock context=context}}
+
+
+        <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Continue</button>
+                </div>
+        </div>
+    </form>
 </template>

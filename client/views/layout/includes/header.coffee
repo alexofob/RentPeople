@@ -7,10 +7,12 @@ Meteor.startup(() ->
 
 Template.loggedInNav.helpers(
   user: () ->
-    return Meteor.user().profile['fname']
+    return Meteor.user().profile['firstName']
 )
 
 Template.loggedInNav.events(
   'click #logOut': () ->
-    Meteor.logout()
+    Meteor.logout( ->
+      Router.go('home')
+    )
 )
