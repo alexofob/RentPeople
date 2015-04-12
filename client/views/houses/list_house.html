@@ -138,6 +138,12 @@
                 </div>
             {{/if}}
 
+            {{#if listHouseFailed}}
+                <div class="alert alert-danger">
+                    <strong>There was a problem submitting the form!</strong>
+                </div>
+            {{/if}}
+
             {{#if success}}
                 <div class="alert alert-success">
                     <strong>Saved!</strong>

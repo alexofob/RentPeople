@@ -36,5 +36,9 @@ Template['listHouseForm'].helpers({
             }
 
         };
+    },
+
+    listHouseFailed: function() {
+        return Session.get('listHouseFailed')
     }
 });
