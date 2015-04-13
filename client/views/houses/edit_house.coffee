@@ -45,8 +45,13 @@ Template.reactiveEditHouseForm.helpers
 
 # Initial data to pass into form
   housePricing: ->
-    {pricing: {advancedPayment, currency, price}} = this
-    return {_id: this._id, advancedPayment: advancedPayment, currency: currency, price: price}
+    if this.pricing
+      {pricing: {advancedPayment, currency, price}} = this
+      return {_id: this._id, advancedPayment: advancedPayment, currency: currency, price: price}
+    else
+      datatest = {_id: this._id, advancedPayment: '', currency: '', price: null}
+      return datatest
+
 
 
 

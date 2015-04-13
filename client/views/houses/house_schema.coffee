@@ -80,4 +80,10 @@ Template.reactiveEditHouseForm.helpers
   pricingSchema: ->
     return pricingSchema
 
+  currency: ->
+    return pricingSchema._schema.currency.allowedValues
+
+  advancedPayment: ->
+    return pricingSchema._schema.advancedPayment.allowedValues
+
 
