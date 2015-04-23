@@ -1,0 +1,60 @@
+<template name="editHouseLocationForm">
+    {{#pricingFormBlock schema=pricingSchema action=action data=housePricing}}
+        {{> selectInput field='currency' options=currency}}
+        {{> priceInput field='price'}}
+        {{> selectInput field='advancedPayment' options=advancedPayment}}
+    {{/pricingFormBlock}}
+</template>
+
+<!-- Reusable form block -->
+<template name="locationFormBlock">
+    <form class='form-horizontal' id='editHousePricing' role="form">
+
+        <p>
+
+            {{#if invalid}}
+                <div class="alert alert-warning"><strong>Can't submit!</strong>
+                    There is <span class="badge">{{invalidCount}}</span> invalid field!
+                </div>
+            {{/if}}
+
+            {{#if failed}}
+                <div class="alert alert-danger">
+                    <strong>{{#if failedMessage}}{{failedMessage}}{{else}}There was a problem submitting the form!{{/if}}</strong>
+                </div>
+            {{/if}}
+
+            {{#if success}}
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <strong>Saved!</strong>
+                </div>
+            {{/if}}
+
+
+        </p>
+
+        {{!-- Using a helper to get form-level schema context --}}
+        {{> UI.contentBlock
+                context=context
+                data=data
+        }}
+
+        <p>
+
+            {{#if changed}}
+                {{#unless success}}
+                    <button type="submit" class="btn btn-md btn-primary">Save</button>
+                {{/unless}}
+            {{/if}}
+
+            {{#if loading}}
+                {{> spinner}}
+            {{/if}}
+
+        </p>
+
+    </form>
+</template>
+
+

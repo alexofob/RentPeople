@@ -1,60 +1,28 @@
-<template name="editHousePricingForm">
+<template name="editHouseDetailsForm">
     <div class="col-md-4">
-        <h4>Pricing</h4>
-        <p class="text-muted"> Set the price potential tenants will see for your listing</p>
+        <h4>Listing Info</h4>
+        <p class="text-muted"> Provide basic information about your listing</p>
     </div>
     <div class="col-md-8">
-        {{#pricingFormBlock schema=pricingSchema action=action data=housePricing}}
-            {{> selectInput field='currency' options=currency}}
-            {{> priceInput field='price'}}
-            {{> selectInput field='advancedPayment' options=advancedPayment}}
+        {{#pricingFormBlock schema=houseSchema action=action data=this}}
+            {{> textInput field='city'}}
+            {{> selectInput field='houseType' options=houseType}}
+            {{> selectInput field='bedrooms' options=bedrooms}}
+            {{> selectInput field='bathrooms' options=bathrooms}}
         {{/pricingFormBlock}}
     </div>
 </template>
 
 <!-- Reusable input element -->
-<template name="priceInput">
+<template name="textInput">
     <div class="reactive-input-container">
 
         <div class="form-group {{errorClass}}">
             <label>{{label}}</label>
-            <div class="input-group">
-                <input class="form-control reactive-element" placeholder="{{instructions}}" value={{value}} {{disabled}}>
-                <span class="input-group-addon">.00</span>
-            </div>
+            <input class="form-control reactive-element" placeholder="{{instructions}}" value={{value}} {{disabled}}>
         </div>
 
 
-
-        {{!-- Hide messages if the surrounding form was successfully submitted --}}
-        {{#unless success}}
-
-        {{!-- If submitted and not success, show error messages --}}
-            {{#if submitted}}
-
-                {{#if errorMessage}}
-                    <div class="alert alert-danger" role="alert">{{errorMessage}}</div>
-                {{/if}}
-
-            {{/if}}
-
-        {{/unless}}
-
-    </div>
-</template>
-
-<!-- Reusable select element -->
-<template name="selectInput">
-    <div class="reactive-input-container">
-
-        <div class="form-group">
-            <label>{{label}}</label>
-            <select class="form-control reactive-element">
-                {{#each this.options}}
-                    <option value={{this}} {{isSelected this value}}>{{this}}</option>
-                {{/each}}
-            </select>
-        </div>
 
         {{!-- Hide messages if the surrounding form was successfully submitted --}}
         {{#unless success}}
@@ -74,7 +42,7 @@
 </template>
 
 <!-- Reusable form block -->
-<template name="pricingFormBlock">
+<template name="detailsFormBlock">
     <form class='form-horizontal' id='editHousePricing' role="form">
 
         <p>

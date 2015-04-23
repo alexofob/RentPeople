@@ -57,6 +57,17 @@ houseSchemaObject =
       '5 or more'
     ]
 
+  bathrooms:
+    type: String
+    label: 'Bathrooms'
+    allowedValues: [
+      '1'
+      '2'
+      '3'
+      '4'
+      '5 or more'
+    ]
+
   pricing:
     type: pricingSchemaObject
 
@@ -76,7 +87,7 @@ Template.listHouseForm.helpers
     return houseSchema._schema.bedrooms.allowedValues
 
 
-Template.reactiveEditHouseForm.helpers
+Template.editHousePricingForm.helpers
   pricingSchema: ->
     return pricingSchema
 
@@ -86,4 +97,15 @@ Template.reactiveEditHouseForm.helpers
   advancedPayment: ->
     return pricingSchema._schema.advancedPayment.allowedValues
 
+Template.editHouseDetailsForm.helpers
+  houseSchema: ->
+    return houseSchema
 
+  houseType: ->
+    return houseSchema._schema.houseType.allowedValues
+
+  bedrooms: ->
+    return houseSchema._schema.bedrooms.allowedValues
+
+  bathrooms: ->
+    return houseSchema._schema.bathrooms.allowedValues

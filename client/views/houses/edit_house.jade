@@ -32,28 +32,24 @@ template(name="formEditHouse")
       .col-md-9
           .panel.panel-default
                 .panel-body
-                    .col-md-4
-                        h4 Pricing
-                        p.text-muted Set the price potential tenants will see for your listing
-                     .col-md-8
-                        +reactiveEditHouseForm
+                   +Template.dynamic template=editHouseForm
 
 template(name="navElements")
     ul.nav.nav-pills.nav-stacked
             li
-                a(href='#')
+                a(href='#' id='pricing')
                     p.lead Pricing
             li
-                a(href='#')
+                a(href='#' id='details')
                     p.lead Listing Info
             li
-                a(href='#')
+                a(href='#' id='photo')
                     p.lead Photo
             li
-                a(href='#')
+                a(href='#' id='location')
                     p.lead Location
             li
-                a(href='#')
+                a(href='#' id='amenities')
                     p.lead Amenities
 
 template(name="space")

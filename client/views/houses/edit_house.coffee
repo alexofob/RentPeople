@@ -3,11 +3,6 @@ Template.formEditHouse.helpers(
         return this.houseType + ' @ ' + this.city
 )
 
-ReactiveForms.createFormBlock
-    template: 'pricingFormBlock'
-    submitType: 'normal'
-
-
 ReactiveForms.createElement(
     template: 'priceInput'
     validationEvent: 'keyup'
@@ -16,6 +11,11 @@ ReactiveForms.createElement(
 ReactiveForms.createElement(
     template: 'selectInput'
     validationEvent: 'change'
+)
+
+ReactiveForms.createElement(
+  template: 'textInput'
+  validationEvent: 'keyup'
 )
 
 Template['priceInput'].helpers
@@ -32,27 +32,23 @@ Template.selectInput.helpers
     else
       return ""
 
-Template.reactiveEditHouseForm.helpers
-  action: ->
-    return (els, callbacks) ->
-      pricing = _.omit(this, "_id")
-      Houses.update({_id: this._id}, {$set: {pricing: pricing}}, (error) ->
-        if error
-          callbacks.failed()
-        else
-          callbacks.success()
-      )
 
-# Initial data to pass into form
-  housePricing: ->
-    if this.pricing
-      {pricing: {advancedPayment, currency, price}} = this
-      return {_id: this._id, advancedPayment: advancedPayment, currency: currency, price: price}
-    else
-      datatest = {_id: this._id, advancedPayment: '', currency: '', price: null}
-      return datatest
+Template.formEditHouse.onRendered(
+  -> Session.setDefault("editHouseForm", "editHousePricingForm")
+)
 
+Template.formEditHouse.helpers
+  editHouseForm: -> Session.get("editHouseForm")
 
-
-
+Template.navElements.events
+  'click #pricing': ->
+    Session.set("editHouseForm", "editHousePricingForm")
+  'click #details': ->
+    Session.set("editHouseForm", "editHouseDetailsForm")
+  'click #photo': ->
+    Session.set("editHouseForm", "editHousePhotoForm")
+  'click #location': ->
+    Session.set("editHouseForm", "editHouseLocationForm")
+  'click #amenities': ->
+    Session.set("editHouseForm", "editHouseAmenitiesForm")
 
