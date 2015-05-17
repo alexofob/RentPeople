@@ -36,3 +36,12 @@
     margin: 20px;
     background-color: white;
 }
+
+#edit-house-photo {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+#blue-camera {
+    color: steelblue;
+}

@@ -18,3 +18,9 @@ accounts-google
 audit-argument-checks
 sacha:spin
 templates:forms@=1.13.3
+reactive-var
+check
+natestrauser:filepicker-plus
+meteorhacks:kadira
+materialize:materialize
+useraccounts:materialize

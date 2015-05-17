@@ -1,24 +1,13 @@
+Template.editHousePhotoForm.events
+  'click button': ->
+    uploader = new Slingshot.Upload("myFileUploads")
+    uploader.send(document.getElementById('upload-photo'), (error, downloadUrl) ->
+      if (!(error))
+        Meteor.users.update(Meteor.userId(), {$push: {"profile.files": downloadUrl}})
+      else console.error('Error uploading', uploader.xhr.response))
 
-ReactiveForms.createFormBlock
-  template: 'photoFormBlock'
-  submitType: 'normal'
+Template.editHousePhotoForm.onCreated( ->
+  loadFilePicker()
+)
 
-Template.editHousePricingForm.helpers
-  action: ->
-    return (els, callbacks) ->
-      pricing = _.omit(this, "_id")
-      Houses.update({_id: this._id}, {$set: {pricing: pricing}}, (error) ->
-        if error
-          callbacks.failed()
-        else
-          callbacks.success()
-      )
 
-# Initial data to pass into form
-  housePricing: ->
-    if this.pricing
-      {pricing: {advancedPayment, currency, price}} = this
-      return {_id: this._id, advancedPayment: advancedPayment, currency: currency, price: price}
-    else
-      datatest = {_id: this._id, advancedPayment: '', currency: '', price: null}
-      return datatest
