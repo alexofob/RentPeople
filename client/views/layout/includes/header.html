@@ -1,60 +1,74 @@
 <template name="header">
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="{{pathFor 'home' }}"><i class="fa fa-home"></i> RentPeople</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    {{#if currentUser}}
-                        {{> loggedInNav}}
-                    {{else}}
-                        {{> loggedOutNav}}
-                    {{/if}}
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Help<span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">How to list a house</a></li>
-                            <li><a href="#">How to select a tenant</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">How to pay rent online</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">How it works</a></li>
+    <!-- Navigation Bar-->
+    <nav class="blue-grey lighten-5" role="navigation">
+        <div class="nav-wrapper container">
+            <!-- Brand and Logo -->
+            <a class="brand-logo" href="{{pathFor 'home' }}">Rent People</a>
+            <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+            <!-- If logged-in user use logged-in user template else use logged-out user template -->
+            <ul class="right hide-on-med-and-down">
+                {{#if currentUser}}
+                    {{> LoggedInNavComponent}}
+                {{else}}
+                    {{> loggedOutNav}}
+                {{/if}}
+                <li><a href="#">How it works</a></li>
+                <!-- List House link -->
+                <ul class="right color-red">
+                    <li><a href="/listHouse" ><span id="color-red"><i class="large mdi-content-add-circle right"></i>List your house</span></a></li>
                 </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
+            </ul>
+        </div>
     </nav>
 
+    <!-- Mobile SideNav Structure -->
+    <ul class="side-nav" id="mobile-menu" role="menu">
+        {{#if currentUser}}
+            {{> LoggedInNavMobileComponent}}
+        {{else}}
+            {{> loggedOutNavMobile}}
+        {{/if}}
+    </ul>
 </template>
 
 <template name="loggedInNav">
-    <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{user}}<span class="caret"></span></a>
-        <ul class="dropdown-menu" role="menu">
-            <li><a href="#">My Dashboard</a></li>
-            <li><a href="#">My Listings</a></li>
-            <li><a href="#">My Reservations</a></li>
-            <li><a href="#">Edit Profile</a></li>
-            <li class="divider"></li>
-            <li><a href="#" id="logOut">Log Out</a></li>
-        </ul>
-    </li>
+    <!-- Help Dropdown Trigger -->
+    <li><a class="dropdown-button" href="#" data-activates="dropdown-menu" role="button" aria-expanded="false">{{user}}<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
+    <ul id="dropdown-menu" class="dropdown-content" role="menu">
+        <li><a href="#">My Dashboard</a></li>
+        <li><a href="#">My Listings</a></li>
+        <li><a href="#">My Reservations</a></li>
+        <li><a href="#">Edit Profile</a></li>
+        <li class="divider"></li>
+        <li><a href="#" id="logOut">Log Out</a></li>
+    </ul>
+</template>
+
+<template name="loggedInNavMobile">
+    <ul>
+        <li><a href="#"><i class="mdi-action-account-circle left"></i>{{user}}</a></li>
+        <li class="divider"></li>
+        <li><a href="#"><i class="mdi-action-home left"></i>Home</a></li>
+        <li><a href="#"><i class="mdi-action-list left"></i>My Listings</a></li>
+        <li><a href="#"><i class="mdi-action-store left"></i>My Reservations</a></li>
+        <li><a href="#"><i class="mdi-action-search left"></i>Search</a></li>
+        <li><a href="/listHouse"><i class="mdi-content-add-circle left"></i>List your house</a></li>
+        <li><a href="#"><i class="mdi-action-info left"></i>How it works</a></li>
+        <li class="divider"></li>
+        <li><a href="#" id="logOut"><i class="mdi-navigation-arrow-back left"></i>Log Out</a></li>
+    </ul>
 </template>
 
 <template name="loggedOutNav">
-    <li><a href="{{pathFor 'signUp'}}" id="login">Sign up</a></li>
     <li><a href="{{pathFor 'signIn'}}" id="login">Sign in</a></li>
 </template>
+
+<template name="loggedOutNavMobile">
+    <li><a href="{{pathFor 'signIn'}}" id="login"><i class="mdi-navigation-arrow-forward left"></i>Sign in</a></li>
+    <li><a href="#"><i class="mdi-action-info left"></i>How it works</a></li>
+    <li><a href="/listHouse"><i class="mdi-content-add-circle left"></i>List your house</a></li>
+</template>
+
+
 

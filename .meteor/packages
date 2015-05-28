@@ -5,14 +5,12 @@
 # but you can also edit it by hand.
 
 meteor-platform
-twbs:bootstrap
 coffeescript
 underscore
 iron:router
 mquandalle:jade
 fortawesome:fontawesome
 accounts-password
-useraccounts:bootstrap
 accounts-facebook
 accounts-google
 audit-argument-checks
@@ -24,3 +22,5 @@ natestrauser:filepicker-plus
 meteorhacks:kadira
 materialize:materialize
 useraccounts:materialize
+peerlibrary:blaze-components
+matteodem:easy-search

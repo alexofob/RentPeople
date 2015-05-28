@@ -1,0 +1,13 @@
+.dropdown-content li > a {
+    font-size: 1em;
+}
+
+nav ul a,
+nav .brand-logo,
+nav a {
+    color: #444;
+}
+
+#color-red {
+    color: #e57373;
+}
