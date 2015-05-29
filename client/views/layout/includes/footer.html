@@ -1,29 +1,27 @@
 <template name="footer">
 
     <!-- Footer -->
-    <footer>
+
+    <footer class="page-footer blue-grey lighten-5">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 text-center">
-                    <ul class="list-inline">
-                        <li>
-                            <a href="{{pathFor 'home' }}">Home</a>
-                        </li>
-                        <li class="footer-menu-divider">&sdot;</li>
-                        <li>
-                            <a href="{{pathFor 'about'}}">About</a>
-                        </li>
-                        <li class="footer-menu-divider">&sdot;</li>
-                        <li>
-                            <a href="#services">Services</a>
-                        </li>
-                        <li class="footer-menu-divider">&sdot;</li>
-                        <li>
-                            <a href="#contact">Contact</a>
-                        </li>
-                    </ul>
-                    <p class="copyright text-muted small">Copyright &copy; How-be 2015. All Rights Reserved</p>
+                <div class="col l6 s12">
+                    <h5 class="black-text">Company Bio</h5>
+                    <p class="grey-text text-darken-4">How-be is a startup keen on providing IT solutions to everyday problems.
+                        If you are also keen on solving problems or joining the team, feel free to drop a line at alexofob@gmail.com</p>
                 </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="black-text">Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-darken-4" href="{{ pathFor 'home'}}">Home</a></li>
+                        <li><a class="grey-text text-darken-4" href="#services">Services</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container grey-text text-darken-4">
+                Copyright &copy; How-be 2015. All Rights Reserved
             </div>
         </div>
     </footer>

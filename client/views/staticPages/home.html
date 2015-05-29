@@ -1,7 +1,7 @@
 <template name="home">
 
     <!-- Header -->
-    <a name="about"></a>
+    <a name="intro"></a>
     <div class="intro-header">
         <div class="section no-pad-bot" id="index-banner">
             <div class="container">
@@ -10,123 +10,116 @@
                         <div class="intro-message">
                             <h1>YOUR DREAM HOME</h1>
                             <h5>Rent your dream home without the hassle</h5>
+                            <hr class="intro-divider">
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- /.container -->
-        <!-- Searchform -->
-        <div class="transparent-strip">
-            <div class="search-form">
-                <form class="form-horizontal">
-                    <div class="form-group">
-                        <div class="input-group input-group-lg">
-                            <input type="text" class="form-control" id="location" name="location" placeholder="Where would you like to live?">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-search"></span></button>
-                                </span>
-                        </div><!-- /input-group -->
+            <!-- Search form -->
+
+            <div class="row">
+                <div class="col s12 m6 offset-m3">
+                    <div class="card-panel blue-grey lighten-5">
+                        <span class="black-text">
+                          <div class="row">
+                              <div class="input-field col s12">
+                                  <i class="mdi-action-search prefix"></i>
+                                  <input id="city" type="text" class="validate">
+                                  <label for="city">Which city would you like to live in?</label>
+                              </div>
+                              <div class="col s8">
+                                  <button class="btn waves-effect waves-light" type="submit" name="action"><span class="network-name">Search</span></button>
+                              </div>
+                          </div>
+                        </span>
                     </div>
-                </form>
+                </div>
             </div>
-            <!-- /.Search form -->
         </div>
     </div>
     <!-- /.intro-header -->
 
     <!-- Page Content -->
 
-    <a  name="benefits"></a>
-    <div class="content-section-a">
-
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5 col-sm-6">
-                    <hr class="section-heading-spacer">
-                    <div class="clearfix"></div>
-                    <h2 class="section-heading">It is now quick and easy to find potential tenants for your house</h2>
-                    <p class="lead">List your house on RentX and instantly have it exposed to thousands of potential tenants.
-                        You don't have to go through an agent and you don't have to pay excessive fees anymore. Renting can't be any more convenient</p>
-                </div>
-                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                    <img class="img-responsive img-thumbnail" src="/img/landlord.jpg" alt="Landlord">
+    <a  name="services"></a>
+    <div class="content-section-a" id="services">
+        <div class="row">
+            <div class="col l5 m6">
+                <hr class="section-heading-spacer left">
+                <div class="clearfix"></div>
+                <h4 class="section-heading">It is now quick and easy to find potential tenants for your house</h4>
+                <p class="lead">List your house on RentX and instantly have it exposed to thousands of potential tenants.
+                    You don't have to go through an agent and you don't have to pay excessive fees anymore. Renting can't be any more convenient</p>
+            </div>
+            <div class="col l5 offset-l2 m6 hide-on-small-only">
+                <div class="card-image grey lighten-5 z-depth-1">
+                    <img class="responsive-img" src="/img/landlord.jpg" alt="Landlord">
                 </div>
             </div>
-
         </div>
-        <!-- /.container -->
-
     </div>
     <!-- /.content-section-a -->
 
     <div class="content-section-b">
 
-        <div class="container">
-
-            <div class="row">
-                <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
-                    <hr class="section-heading-spacer">
-                    <div class="clearfix"></div>
-                    <h2 class="section-heading">Choose from a list of potential tenants</h2>
-                    <p class="lead">Decide on who to rent your house to by accessing the profiles of potential tenants who have expressed interest. You now have the information to decide on the best tenant for your house.</p>
+        <div class="row">
+            <div class="col l5 m6 hide-on-small-only">
+                <div class="card-image grey lighten-5 z-depth-1">
+                    <img class="responsive-img" src="/img/select-tenant.jpg" alt="Select a Tenant">
                 </div>
-                <div class="col-lg-5 col-sm-pull-6  col-sm-6">
-                    <img class="img-responsive img-thumbnail" src="/img/select-tenant.jpg" alt="Select a Tenant">
-                </div>
+            </div>
+            <div class="col l5 offset-l2 m6">
+                <hr class="section-heading-spacer">
+                <div class="clearfix"></div>
+                <h4 class="section-heading">Choose from a list of potential tenants</h4>
+                <p class="lead">Decide on who to rent your house to by accessing the profiles of potential tenants who have expressed interest. You now have the information to decide on the best tenant for your house.</p>
             </div>
 
         </div>
-        <!-- /.container -->
 
     </div>
     <!-- /.content-section-b -->
 
     <div class="content-section-a">
 
-        <div class="container">
-
             <div class="row">
-                <div class="col-lg-5 col-sm-6">
+                <div class="col l5 m6">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading">Find a house to rent with convenience</h2>
+                    <h4 class="section-heading">Find a house to rent with convenience</h4>
                     <p class="lead">Have instant access to available houses without going through an agent. Receive notifications whenever a listed house meets your criteria.
                         Pay your rent securely on RentX only after you are satisfied with the house you want to rent.
                     </p>
                 </div>
-                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                    <img class="img-responsive img-thumbnail" src="/img/apartment.jpg" alt="Apartment">
+                <div class="col l5 offset-l2 m6 hide-on-small-only">
+                    <div class="card-image grey lighten-5 z-depth-1">
+                        <img class="responsive-img" src="/img/apartment.jpg" alt="Apartment">
+                    </div>
                 </div>
             </div>
-
-        </div>
-        <!-- /.container -->
 
     </div>
     <!-- /.content-section-a -->
 
     <div class="content-section-b">
 
-        <div class="container">
-
             <div class="row">
-                <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+                <div class="col l5 m6 hide-on-small-only">
+                    <div class="card-image grey lighten-5 z-depth-1">
+                        <img class="responsive-img" src="/img/rating.png" alt="Rating">
+                    </div>
+                </div>
+                <div class="col l5 offset-l2 m6">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading">Make a choice of an apartment based on ratings of previous tenants</h2>
+                    <h4 class="section-heading">Make a choice of an apartment based on ratings of previous tenants</h4>
                     <p class="lead">You have feedback and ratings of other tenants when choosing an apartment.
                         You also have the chance to rate and provide feedback on the houses you rent.
                     </p>
                 </div>
-                <div class="col-lg-5 col-sm-pull-6  col-sm-6">
-                    <img class="img-responsive" src="/img/rating.png" alt="Rating">
-                </div>
-            </div>
 
-        </div>
-        <!-- /.container -->
+            </div>
 
     </div>
     <!-- /.content-section-b -->
@@ -137,12 +130,14 @@
         <div class="container">
 
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col l6">
                     <h2>Renting your dream home is made easy!</h2>
                 </div>
-                <div class="col-lg-6">
-                    <div class="list-button">
-                        {{> linkToListHouse }}
+                <div class="col l6">
+                    <div class="list-button valign-wrapper">
+                        <a href="/listHouse" class="btn waves-effect waves-light red lighten-1 valign"><span class="network-name">List your house</span>
+                            <i class="mdi-content-add-circle right white-text"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -153,10 +148,4 @@
     </div>
     <!-- /.banner -->
 
-</template>
-
-<template name="linkToListHouse">
-    <ul class="right">
-        <li><a href="/listHouse" class="waves-effect waves-light btn"><i class="mdi-file-cloud left"></i><span class="network-name"> List your house</span></a></li>
-    </ul>
 </template>
