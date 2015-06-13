@@ -1,20 +1,22 @@
-.edit-house-header {
-    padding-top: 60px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
-    padding-bottom: 0;
-    padding-left: 5%;
-    padding-right: 5%;
-    color: dimgray;
-    background-color: white;
-}
-
 
 #content-wrapper {
-    padding: 0 15px;
-    min-height: 568px;
-    background-color: #f8f8f8;
-
+    padding: 10px 40px;
+    min-height: 518px;
 }
 
+#form-wrapper {
+    min-height: 300px;
+}
+
+#side-bar {
+    z-index: 1;
+    width: 200px;
+    margin: 20px;
+}
+
+#price-icon {
+    margin-top: 20px;
+}
 
 @media(min-width:768px) {
     #page-wrapper {
@@ -23,13 +25,6 @@
         padding: 0 30px;
         border-left: 1px solid #e7e7e7;
     }
-    #side-bar {
-        z-index: 1;
-        position: absolute;
-        width: 200px;
-        margin-top: 100px;
-}
-
 }
 
 .space {

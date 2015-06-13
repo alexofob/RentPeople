@@ -11,3 +11,25 @@ nav a {
 #color-red {
     color: #e57373;
 }
+
+.modal {
+    max-height: 85%;
+    width: 35%;
+}
+
+.at-title h3 {
+    font-size: 1.5em;
+}
+
+nav .brand-logo {
+    padding: 0 10px;
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+@media(max-width:767px) {
+    .modal {
+        max-height: 85%;
+        width: 65%;
+    }
+}

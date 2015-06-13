@@ -1,0 +1,100 @@
+<!-- Reusable input element -->
+<template name="textInputHor">
+    <div class="reactive-input-container">
+
+        <div class="input-field col s12">
+            <input id="textfield" type="text" class="form-control reactive-element validate" value={{value}}>
+            <label class="{{isActive value}}" for="textfield">{{label}}</label>
+        </div>
+        {{#if submitted}}
+
+            {{#if errorMessage}}
+                <div class="col s10 red-text text-darken-1 small-font" role="alert">{{errorMessage}}</div>
+            {{/if}}
+
+        {{/if}}
+    </div>
+
+</template>
+
+<!-- Reusable select element -->
+<template name="selectInputHor">
+    <div class="reactive-input-container">
+
+        <div class="input-field col s12">
+            <select class="form-control reactive-element browser-default">
+                <option value="" disabled selected>Choose {{label}}</option>
+                {{#each this.options}}
+                    <option value={{this}}>{{this}}</option>
+                {{/each}}
+            </select>
+            {{!-- Hide messages if the surrounding form was successfully submitted --}}
+            {{#unless success}}
+
+            {{!-- If submitted and not success, show error messages --}}
+                {{#if submitted}}
+
+                    {{#if errorMessage}}
+                        <div class="col s10 red-text text-darken-1 small-font" role="alert">{{errorMessage}}</div>
+                    {{/if}}
+
+                {{/if}}
+
+            {{/unless}}
+
+        </div>
+    </div>
+
+
+</template>
+
+<!-- Reusable input element -->
+<template name="priceInput">
+
+        <div class="reactive-input-container">
+
+            <div class="input-field col s12">
+                <input id="textfield" type="text" class="form-control reactive-element validate" value={{value}}>
+                <label class="active" for="textfield">{{label}}</label>
+            </div>
+            {{#if submitted}}
+
+                {{#if errorMessage}}
+                    <div class="col s10 red-text text-darken-1 small-font" role="alert">{{errorMessage}}</div>
+                {{/if}}
+
+            {{/if}}
+        </div>
+
+</template>
+
+<!-- Reusable select element -->
+<template name="selectInput">
+
+    <div class="reactive-input-container">
+
+        <div class="input-field col s12">
+            <select class="form-control reactive-element browser-default">
+                <option value="" disabled selected>Choose {{label}}</option>
+                {{#each this.options}}
+                    <option value={{this}} {{isSelected this value}}>{{this}}</option>
+                {{/each}}
+            </select>
+            {{!-- Hide messages if the surrounding form was successfully submitted --}}
+            {{#unless success}}
+
+            {{!-- If submitted and not success, show error messages --}}
+                {{#if submitted}}
+
+                    {{#if errorMessage}}
+                        <div class="col s10 red-text text-darken-1 small-font" role="alert">{{errorMessage}}</div>
+                    {{/if}}
+
+                {{/if}}
+
+            {{/unless}}
+
+        </div>
+    </div>
+
+</template>

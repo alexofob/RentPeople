@@ -1,4 +1,4 @@
-Template.header.rendered = function() {
+Template.navigationBar.rendered = function() {
     Meteor.setTimeout(function() {
         this.$('.button-collapse').sideNav({
             menuWidth: 240,

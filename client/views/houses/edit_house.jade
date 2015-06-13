@@ -1,60 +1,55 @@
 template(name="editHouse")
-    .container-fluid
-        .row.clearfix.edit-house-header
-            .col-md-8
-                a(href="{{pathFor 'listUserHouses'}}")
-                    span.glyphicon.glyphicon-arrow-left
-                    | listings
-            .col-md-4.text-right
-                a(href="{{pathFor 'viewHouse' }}")
-                    span.glyphicon.glyphicon-eye-open
-                    | preview
-        .row
-            +container
-
-template(name="container")
-    #content-wrapper
-        .col-xs-6.col-sm-3.col-md-2(role="navigation")
-            +menuEditHouse
-        .col-xs-12.col-sm-9.col-md-10
-            +formEditHouse
-    +space
+    .row.clearfix
+        nav
+            .nav-wrapper.blue.darken-2
+                a.brand-logo.white-text(href="#") Manage your #{houseHeading}
+                ul.right
+                    li
+                        a.white-text(href="{{pathFor 'viewHouse' }}")
+                            i.mdi-action-visibility.left
+                            &nbsp;Preview
+    .row.clearfix
+        .col.m2
+            #side-bar(role="navigation")
+                +menuEditHouse
+        .col.m8
+            #content-wrapper
+                +formEditHouse
 
 template(name="menuEditHouse")
-    #side-bar(role="navigation")
-        +navElements
+    ul
+        li
+            a(href='#' id='pricing')
+                p
+                    i.mdi-editor-attach-money.lead
+                    &nbsp;&nbsp;&nbsp;&nbsp; Pricing
+        li
+            a(href='#' id='details')
+                p
+                    i.mdi-action-list.lead
+                    &nbsp;&nbsp;&nbsp;&nbsp; Listing Details
+        li
+            a(href='#' id='photo')
+                p
+                    i.mdi-editor-insert-photo.lead
+                    &nbsp;&nbsp;&nbsp;&nbsp; Photo
+        li
+            a(href='#' id='location')
+                p
+                    i.mdi-maps-place.lead
+                    &nbsp;&nbsp;&nbsp;&nbsp;Location
+        li
+            a(href='#' id='amenities')
+                p
+                    i.mdi-maps-local-laundry-service.lead
+                    &nbsp;&nbsp;&nbsp;&nbsp;Amenities
 
 template(name="formEditHouse")
     .row
-      .col-md-12
-          h3.page-header Manage your listing: #{houseHeading}
-    .row
-      .col-md-9
-          .panel.panel-default
-                .panel-body
-                   +Template.dynamic template=editHouseForm
+        .col.m12
+            #form-wrapper.card.blue-grey.lighten-5
+                +Template.dynamic template=editHouseForm
 
-template(name="navElements")
-    ul.nav.nav-pills.nav-stacked
-            li
-                a(href='#' id='pricing')
-                    p.lead Pricing
-            li
-                a(href='#' id='details')
-                    p.lead Listing Info
-            li
-                a(href='#' id='photo')
-                    p.lead Photo
-            li
-                a(href='#' id='location')
-                    p.lead Location
-            li
-                a(href='#' id='amenities')
-                    p.lead Amenities
-
-template(name="space")
-  .row.clearfix.space
-    .col-md-12
 
 
 

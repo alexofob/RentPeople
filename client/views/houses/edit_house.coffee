@@ -1,4 +1,4 @@
-Template.formEditHouse.helpers(
+Template.editHouse.helpers(
     houseHeading: () ->
         return this.houseType + ' @ ' + this.city
 )
@@ -18,11 +18,16 @@ ReactiveForms.createElement(
   validationEvent: 'keyup'
 )
 
-Template['priceInput'].helpers
+Template['textInputHor'].helpers
     disabled: ->
         inst = Template.instance()
         if inst.loading && inst.loading.get()
             return "disabled"
+    isActive: (value) ->
+      if value
+        return "active"
+      else
+        return ""
 
 Template.selectInput.helpers
 # Selects the stored item from the selection element
@@ -40,7 +45,7 @@ Template.formEditHouse.onRendered(
 Template.formEditHouse.helpers
   editHouseForm: -> Session.get("editHouseForm")
 
-Template.navElements.events
+Template.menuEditHouse.events
   'click #pricing': ->
     Session.set("editHouseForm", "editHousePricingForm")
   'click #details': ->

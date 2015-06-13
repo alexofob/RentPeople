@@ -1,0 +1,35 @@
+<template name="appHeader">
+
+    <!-- Navigation Bar-->
+    {{#navigationBar}}
+
+        <ul class="right hide-on-med-and-down">
+            <li><a href="#"><i class="mdi-action-search left"></i>Find a house to rent</a></li>
+
+            {{#if currentUser}}
+                {{> LoggedInNavComponent}}
+            {{else}}
+                {{> LoggedOutNavComponent}}
+            {{/if}}
+            <ul class="right color-red">
+                <!-- List House link -->
+                <li><a href="/listHouse" ><span id="color-red"><i class="large mdi-content-add-circle right"></i>List your house</span></a></li>
+            </ul>
+        </ul>
+    {{/navigationBar}}
+
+    <!-- Mobile SideNav Structure -->
+    {{> mobileSideNav }}
+
+    <!-- Modal Structure -->
+    {{> modalStructure }}
+
+</template>
+
+
+
+
+
+
+
+

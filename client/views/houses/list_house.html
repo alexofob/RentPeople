@@ -1,19 +1,11 @@
 <template name="listHouse">
-    <div class="container-fluid header-padding">
-        <div class="row clearfix">
-            <div class="col-md-12 column">
-                <h1 class="text-center ">
-                    List Your House
-                </h1>
-                <h3 class="text-center">
-                    RentX makes it easy to rent out your house
-                </h3>
-            </div>
-        </div>
+    <div class="container header-padding">
+        <h3>List Your House</h3>
+        <h5>RentX makes it easy to rent out your house</h5>
     </div>
-    <div class="container-fluid list-house-form">
+    <div class="list-house-form blue-grey lighten-5">
         <div class="row">
-            <div class="col-md-12 column">
+            <div class="col s10 offset-s1 m8 offset-m2 l6 offset-l3">
                 {{> listHouseForm}}
             </div>
         </div>
@@ -24,24 +16,24 @@
 <template name="benefits">
 <!-- Benefits Section -->
 <div class="container">
-    <div class="row text-center">
-        <div class="col-md-6">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-key fa-stack-1x fa-inverse"></i>
-                    </span>
+    <div class="row center-align">
+        <div class="col l6">
+            <span class="fa-stack fa-4x">
+                <i class="fa fa-circle fa-stack-2x teal-text"></i>
+                <i class="fa fa-key fa-stack-1x fa-inverse"></i>
+            </span>
             <h4 class="service-heading">Quick and Easy</h4>
-            <p class="text-muted">List your house on RentX and instantly have it exposed to thousands of potential tenants.
+            <p class="grey-text text-darken-2">List your house on RentX and instantly have it exposed to thousands of potential tenants.
                 You don't have to go through an agent and you don't have to pay excessive fees anymore.
                 Renting can't be any more convenient</p>
         </div>
-        <div class="col-md-6">
-                <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-check-square-o fa-stack-1x fa-inverse"></i>
-                </span>
+        <div class="col l6">
+            <span class="fa-stack fa-4x">
+                    <i class="fa fa-circle fa-stack-2x teal-text"></i>
+                    <i class="fa fa-check-square-o fa-stack-1x fa-inverse"></i>
+            </span>
             <h4 class="service-heading">Choose your Tenant</h4>
-            <p class="text-muted">Decide on who to rent your house to by accessing the profiles of potential tenants who have expressed interest.
+            <p class="grey-text text-darken-2">Decide on who to rent your house to by accessing the profiles of potential tenants who have expressed interest.
                 You now have the information to decide on the best tenant for your house.</p>
         </div>
     </div>
@@ -53,114 +45,35 @@
 <template name="listHouseForm">
     {{#listHouseFormBlock schema=houseSchema action=action}}
         {{> textInputHor field='city'}}
-        {{> selectInputHor field='houseType' options=houseTypes}}
         {{> selectInputHor field='bedrooms' options=bedrooms}}
+        {{> selectInputHor field='houseType' options=houseTypes}}
     {{/listHouseFormBlock}}
-</template>
-
-<!-- Reusable input element -->
-<template name="textInputHor">
-    <div class="reactive-input-container">
-
-        <div class="form-group">
-            <label class="col-sm-2 control-label">{{label}}</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control reactive-element" placeholder="{{instructions}}"
-                       value={{value}}>
-            </div>
-        </div>
-
-
-            {{#if submitted}}
-
-                {{#if errorMessage}}
-                    <div class="col-sm-offset-2 col-sm-10 alert alert-danger" role="alert">{{errorMessage}}</div>
-                {{/if}}
-
-            {{/if}}
-
-
-    </div>
-</template>
-
-<!-- Reusable select element -->
-<template name="selectInputHor">
-    <div class="reactive-input-container">
-
-        <div class="form-group">
-            <label class="col-sm-2 control-label">{{label}}</label>
-            <div class="col-sm-10">
-                <select class="form-control reactive-element">
-                    {{#each this.options}}
-                        <option value={{this}}>{{this}}</option>
-                    {{/each}}
-                </select>
-            </div>
-        </div>
-
-        {{!-- Hide messages if the surrounding form was successfully submitted --}}
-        {{#unless success}}
-
-        {{!-- If submitted and not success, show error messages --}}
-            {{#if submitted}}
-
-                {{#if errorMessage}}
-                    <div class="col-sm-offset-2 col-sm-10 alert alert-danger" role="alert">{{errorMessage}}</div>
-                {{/if}}
-
-            {{/if}}
-
-        {{/unless}}
-
-    </div>
 </template>
 
 <!-- Reusable form block -->
 <template name="listHouseFormBlock">
-    <form class="form-horizontal form-padding" id='listHouse' role="form">
+    <form class="form-padding" id='listHouse' role="form">
 
 
-        <div class="col-sm-offset-2 col-sm-10">
+        <div class="col  m10 offset-m2">
 
             {{#if loading}}
                 {{> spinner}}
             {{/if}}
 
-            {{#if invalid}}
-                <div class="alert alert-warning"><strong>Can't submit!</strong>
-                    There is <span class="badge">{{invalidCount}}</span> invalid field!
-                </div>
-            {{/if}}
-
-            {{#if failed}}
-                <div class="alert alert-danger">
-                    <strong>{{#if failedMessage}}{{failedMessage}}{{else}}There was a problem submitting the form!{{/if}}</strong>
-                </div>
-            {{/if}}
-
-            {{#if listHouseFailed}}
-                <div class="alert alert-danger">
-                    <strong>There was a problem submitting the form!</strong>
-                </div>
-            {{/if}}
-
-            {{#if success}}
-                <div class="alert alert-success">
-                    <strong>Saved!</strong>
-                </div>
-            {{/if}}
-
         </div>
 
-
-        {{!-- Using a helper to get form-level schema context --}}
-        {{> UI.contentBlock context=context}}
-
-
-        <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-default">Continue</button>
+        <div class="card-panel white">
+            <div class="black-text">
+                <div class="row">
+                    {{!-- Using a helper to get form-level schema context --}}
+                    {{> UI.contentBlock context=context}}
+                    <div class="col s4" id="form-button">
+                        <button class="btn waves-light" type="submit"><span class="network-name">Continue</span></button>
+                    </div>
                 </div>
+            </div>
         </div>
+
     </form>
 </template>

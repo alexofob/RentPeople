@@ -16,6 +16,7 @@
 .intro-message > h1 {
     margin: 0;
     text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+    font-weight: 700;
 }
 
 .intro-divider {
@@ -24,8 +25,9 @@
     border-bottom: 1px solid rgba(0,0,0,0.2);
 }
 
-.intro-message > h5 {
+.intro-message > h4 {
     text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+    font-weight: 700;
 }
 
 .search-form {

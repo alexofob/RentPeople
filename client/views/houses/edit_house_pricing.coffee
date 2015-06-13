@@ -10,8 +10,10 @@ Template.editHousePricingForm.helpers
       Houses.update({_id: this._id}, {$set: {pricing: pricing}}, (error) ->
         if error
           callbacks.failed()
+          Materialize.toast(error.reason, 4000)
         else
           callbacks.success()
+          Materialize.toast("Saved!", 4000)
       )
 
 # Initial data to pass into form

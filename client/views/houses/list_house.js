@@ -19,7 +19,7 @@ Template['listHouseForm'].helpers({
         return function (els, callbacks) {
             if (!Meteor.user()) {
                 Session.set('house', this);
-                Router.go('signIn');
+                $('#modalLogIn').openModal();
                 return;
             }
             else {
@@ -27,6 +27,7 @@ Template['listHouseForm'].helpers({
                     // display the error to the user and abort
                     if (error) {
                         callbacks.failed();
+                        Materialize.toast(error.reason, 4000);
                     }
                     else {
                         callbacks.success()
@@ -41,4 +42,8 @@ Template['listHouseForm'].helpers({
     listHouseFailed: function() {
         return Session.get('listHouseFailed')
     }
+});
+
+Template.selectInputHor.onRendered(function() {
+        this.$('select').material_select();
 });

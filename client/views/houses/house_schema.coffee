@@ -32,10 +32,10 @@ pricingSchemaObject =
 houseSchemaObject =
   city:
     type: String
-    label: 'City'
+    label: 'City where house is located'
     min: 2
     max: 30
-    instructions: 'Please enter the city where house is located'
+    instructions: 'Please enter the city where your house is located'
 
   houseType:
     type: String
@@ -48,43 +48,35 @@ houseSchemaObject =
 
   bedrooms:
     type: String
-    label: 'Bedrooms'
+    label: 'Number of Bedrooms'
     allowedValues: [
-      '1'
-      '2'
-      '3'
-      '4'
-      '5 or more'
+      '1 Bedroom'
+      '2 Bedrooms'
+      '3 Bedrooms'
+      '4 Bedrooms'
+      '5 Bedrooms or more'
     ]
 
   bathrooms:
     type: String
     label: 'Bathrooms'
     allowedValues: [
-      '1'
-      '2'
-      '3'
-      '4'
-      '5 or more'
+      '1 bathroom'
+      '2 bathrooms'
+      '3 bathrooms'
+      '4 bathrooms'
+      '5 bathrooms or more'
     ]
 
   pricing:
     type: pricingSchemaObject
 
-pricingSchema = new SimpleSchema(pricingSchemaObject)
+@pricingSchema = new SimpleSchema(pricingSchemaObject)
 
-houseSchema = new SimpleSchema(houseSchemaObject)
+@houseSchema = new SimpleSchema(houseSchemaObject)
 
 
-Template.listHouseForm.helpers
-  houseSchema: ->
-    return houseSchema
 
-  houseTypes: ->
-    return houseSchema._schema.houseType.allowedValues
-
-  bedrooms: ->
-    return houseSchema._schema.bedrooms.allowedValues
 
 
 Template.editHousePricingForm.helpers

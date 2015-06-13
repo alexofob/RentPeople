@@ -1,6 +1,3 @@
-Meteor.startup(() ->
-)
-
 class LoggedInNavComponent extends BlazeComponent
   # Register a component so that it can be included in templates. It also
   # gives the component the name. The convention is to use the class name.
@@ -38,12 +35,42 @@ class LoggedInNavComponent extends BlazeComponent
       }).bind(this)), 200
 
 class LoggedInNavMobileComponent extends LoggedInNavComponent
-  # Register a component so that it can be included in templates. It also
-  # gives the component the name. The convention is to use the class name.
+
   @register 'LoggedInNavMobileComponent'
 
   template: ->
     'loggedInNavMobile'
+
+class LoggedOutNavComponent extends BlazeComponent
+
+  @register 'LoggedOutNavComponent'
+
+  template: ->
+    'loggedOutNav'
+
+  events: -> [
+
+    #'click #logIn': @onClickLogIn
+  ]
+
+  onClickLogIn: (event) ->
+    alert 'test'
+
+
+  onRendered: ->
+    $('.modal-trigger').leanModal(
+      complete: ->
+
+
+    )
+
+class LoggedOutNavMobileComponent extends LoggedOutNavComponent
+
+  @register 'LoggedOutNavMobileComponent'
+
+  template: ->
+    'loggedOutNavMobile'
+
 
 
 
