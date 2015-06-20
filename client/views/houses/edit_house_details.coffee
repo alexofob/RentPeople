@@ -14,3 +14,9 @@ Template.editHouseDetailsForm.helpers
           Materialize.toast("Saved!", 4000)
       )
 
+Template.editHouseDetailsForm.events
+  'click #next': ->
+    Session.set("editHouseForm", "editHousePhotoForm")
+
+  'click #back': ->
+    Session.set("editHouseForm", "editHousePricingForm")

@@ -18,9 +18,13 @@ sacha:spin
 templates:forms@=1.13.3
 reactive-var
 check
-natestrauser:filepicker-plus
 meteorhacks:kadira
 materialize:materialize
 useraccounts:materialize
 peerlibrary:blaze-components
 matteodem:easy-search
+ccorcos:clientside-image-manipulation
+cfs:standard-packages
+cfs:gridfs
+cfs:graphicsmagick
+lepozepo:cloudinary

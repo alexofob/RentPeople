@@ -1,0 +1,82 @@
+<template name="imagesList">
+    {{#each images}}
+        {{>imageShow}}
+    {{/each}}
+</template>
+
+<template name="imageShow">
+    <div class="col l6">
+        <div class="card">
+            {{#if this.isUploaded }}
+                <div class="card-image">
+                    <img src="{{this.url}}" alt="House Photo">
+                </div>
+
+                <div class="card-content">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea id="photo-description" class="materialize-textarea" value="{{this.metadata.description}}"></textarea>
+                            <label for="photo-description" class="{{isActive}}">Give a brief description of Photo</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-action">
+                    <a id="delete-photo" href="#">
+                        <i class="mdi-action-delete"></i>
+                        Delete Photo
+                    </a>
+                </div>
+            {{else}}
+                <div class="col s6 offset-s3">
+                    {{> preloader }}
+                </div>
+
+            {{/if}}
+        </div>
+    </div>
+</template>
+
+<template name="preloader">
+
+    <div class="preloader-wrapper big active">
+        <div class="spinner-layer spinner-blue">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div><div class="gap-patch">
+            <div class="circle"></div>
+        </div><div class="circle-clipper right">
+            <div class="circle"></div>
+        </div>
+        </div>
+
+        <div class="spinner-layer spinner-red">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div><div class="gap-patch">
+            <div class="circle"></div>
+        </div><div class="circle-clipper right">
+            <div class="circle"></div>
+        </div>
+        </div>
+
+        <div class="spinner-layer spinner-yellow">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div><div class="gap-patch">
+            <div class="circle"></div>
+        </div><div class="circle-clipper right">
+            <div class="circle"></div>
+        </div>
+        </div>
+
+        <div class="spinner-layer spinner-green">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div><div class="gap-patch">
+            <div class="circle"></div>
+        </div><div class="circle-clipper right">
+            <div class="circle"></div>
+        </div>
+        </div>
+    </div>
+</template>

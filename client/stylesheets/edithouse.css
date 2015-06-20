@@ -14,8 +14,18 @@
     margin: 20px;
 }
 
-#price-icon {
+#upload-photo {
+    position: relative;
+}
+
+.margin-20 {
     margin-top: 20px;
+}
+
+.hidden-div {
+    width: 0;
+    height: 0;
+    overflow: hidden;
 }
 
 @media(min-width:768px) {
@@ -26,6 +36,7 @@
         border-left: 1px solid #e7e7e7;
     }
 }
+
 
 .space {
     margin: 20px;

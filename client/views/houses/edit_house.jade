@@ -1,7 +1,7 @@
 template(name="editHouse")
     .row.clearfix
-        nav
-            .nav-wrapper.blue.darken-2
+        nav.teal.lighten-1
+            .nav-wrapper
                 a.brand-logo.white-text(href="#") Manage your #{houseHeading}
                 ul.right
                     li
@@ -9,7 +9,7 @@ template(name="editHouse")
                             i.mdi-action-visibility.left
                             &nbsp;Preview
     .row.clearfix
-        .col.m2
+        .col.m3
             #side-bar(role="navigation")
                 +menuEditHouse
         .col.m8
@@ -17,32 +17,32 @@ template(name="editHouse")
                 +formEditHouse
 
 template(name="menuEditHouse")
-    ul
+    ul.collection
         li
-            a(href='#' id='pricing')
+            a.collection-item(href='#' id='pricing')
                 p
                     i.mdi-editor-attach-money.lead
-                    &nbsp;&nbsp;&nbsp;&nbsp; Pricing
+                    &nbsp; &nbsp; &nbsp;&nbsp; Pricing
         li
-            a(href='#' id='details')
+            a.collection-item(href='#' id='details')
                 p
                     i.mdi-action-list.lead
-                    &nbsp;&nbsp;&nbsp;&nbsp; Listing Details
+                    &nbsp; &nbsp;&nbsp;&nbsp; Listing Details
         li
-            a(href='#' id='photo')
+            a.collection-item(href='#' id='photo')
                 p
                     i.mdi-editor-insert-photo.lead
-                    &nbsp;&nbsp;&nbsp;&nbsp; Photo
+                    &nbsp; &nbsp;&nbsp;&nbsp; Photo
         li
-            a(href='#' id='location')
+            a.collection-item(href='#' id='location')
                 p
                     i.mdi-maps-place.lead
-                    &nbsp;&nbsp;&nbsp;&nbsp;Location
+                    &nbsp; &nbsp;&nbsp;&nbsp;Location
         li
-            a(href='#' id='amenities')
+            a.collection-item(href='#' id='amenities')
                 p
                     i.mdi-maps-local-laundry-service.lead
-                    &nbsp;&nbsp;&nbsp;&nbsp;Amenities
+                    &nbsp; &nbsp;&nbsp;&nbsp;Amenities
 
 template(name="formEditHouse")
     .row

@@ -2,11 +2,5 @@
   "kadira": {
     "appId": "dgofdyg6qZj3Xc8LE",
     "appSecret": "c0a73e11-2cd2-443d-995b-82b5a9c1c424"
-  },
-
-  "public" : {
-    "filepicker":{
-      "key": "AJ3ZQ0dDfQeumQxsKFJzHz"
-    }
   }
 }

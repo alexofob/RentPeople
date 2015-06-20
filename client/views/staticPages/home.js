@@ -4,7 +4,7 @@
 
 Template.home.rendered = function() {
     var i = 1;
-    var images = ['/img/bedroom-dark-bg.jpg','/img/banner-bg.jpg','/img/house-bg-dark.jpg'];
+    var images = ['/img/bedroom-dark-bg.jpg','/img/banner-bg.jpg','/img/full-house-dark.jpg'];
     var image = $('.intro-header');
     //Initial background image setup
     image.css('background-image', 'url(/img/bedroom-dark-bg.jpg)')

@@ -1,0 +1,83 @@
+<template name="editHousePhotoForm">
+    {{#if Template.subscriptionsReady}}
+        {{#if imageFound}}
+            <div class="card-content">
+                <div class="row" >
+                    <div class="col m4 center-align">
+                        <div class="fa-stack fa-4x">
+                            <i class="fa fa-circle fa-stack-2x teal-text text-lighten-2"></i>
+                            <i class="fa fa-camera fa-stack-1x fa-inverse" area-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="col m4 center-align">
+                        <div class="card-title grey-text text-darken-4">
+                            Add Some Photos
+                        </div>
+                        <p class="grey-text text-darken-2">
+                            Make an impression with beautiful photos of your listing
+                        </p>
+                    </div>
+                    <div class="col m4 center-align">
+                        <div class="hidden-div">
+                            <input id="upload-photo" class="margin-20" type="file">
+                        </div>
+                        <a class="btn-floating btn-large waves-effect waves-light red margin-20" id=upload-button>
+                            <i class="mdi-content-add"></i>
+                        </a>
+                        <div class="margin-20">
+                            <p class="grey-text text-darken-2">
+                               {{numOfPhotos}} Added
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="divider grey lighten-2"></div>
+                <div class="row margin-20">
+                    {{> imagesList}}
+                </div>
+            </div>
+        {{else}}
+          <div class="row" >
+              <div class="card-content">
+                  <div class="col m6 offset-m3 center-align">
+                      <div class="fa-stack fa-4x">
+                          <i class="fa fa-circle fa-stack-2x teal-text text-lighten-2"></i>
+                          <i class="fa fa-camera fa-stack-1x fa-inverse" area-hidden="true"></i>
+                      </div>
+                      <div class="card-title grey-text text-darken-4">
+                          Add Some Photos
+                      </div>
+                      <p class="grey-text text-darken-2">
+                          Make an impression with beautiful photos of your listing
+                      </p>
+                      <div class="hidden-div">
+                          {{#c_upload callback="save_url"}}
+                              <input id="upload-photo" class="margin-20" type="file">
+                          {{/c_upload}}
+                      </div>
+                      <a class="btn-floating btn-large waves-effect waves-light red margin-20" id=upload-button>
+                          <i class="mdi-content-add"></i>
+                      </a>
+                  </div>
+              </div>
+          </div>
+        {{/if}}
+          <div class="row">
+              <div class="col m12">
+                  <div class="card-action">
+                      <a id="back" class="left" href="#">Back</a>
+                      <a id="next" class="right" href="#">Next</a>
+                  </div>
+              </div>
+          </div>
+    {{else}}
+        <div class="row">
+            <div class="card-content">
+                {{> spinner}}
+            </div>
+        </div>
+
+    {{/if}}
+</template>
+
+

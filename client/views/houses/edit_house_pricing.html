@@ -1,19 +1,28 @@
 <template name="editHousePricingForm">
-    <div class="card-content black-text">
-        <div class="col m4">
-            <span class="card-title grey-text text-darken-4">Pricing</span>
-            <p class="grey-text text-darken-2"> Set the price potential tenants will see for your listing</p>
-            <span id='price-icon' class="fa-stack fa-4x">
-                <i class="fa fa-circle fa-stack-2x blue-text"></i>
-                <i class="fa fa-money fa-stack-1x fa-inverse"></i>
-            </span>
+    <div class="row">
+        <div class="card-content black-text">
+            <div class="col m4">
+                <span class="card-title grey-text text-darken-4">Pricing</span>
+                <p class="grey-text text-darken-2"> Set the price potential tenants will see for your listing</p>
+                <span class="fa-stack fa-4x margin-top-20">
+                    <i class="fa fa-circle fa-stack-2x teal-text text-lighten-2"></i>
+                    <i class="fa fa-money fa-stack-1x fa-inverse"></i>
+                </span>
+            </div>
+            <div class="col m8">
+                {{#pricingFormBlock schema=pricingSchema action=action data=housePricing}}
+                    {{> textInputHor field='price'}}
+                    {{> selectInput field='currency' options=currency}}
+                    {{> selectInput field='advancedPayment' options=advancedPayment}}
+                {{/pricingFormBlock}}
+            </div>
         </div>
-        <div class="col m8">
-            {{#pricingFormBlock schema=pricingSchema action=action data=housePricing}}
-                {{> textInputHor field='price'}}
-                {{> selectInput field='currency' options=currency}}
-                {{> selectInput field='advancedPayment' options=advancedPayment}}
-            {{/pricingFormBlock}}
+    </div>
+    <div class="row">
+        <div class="col m12">
+            <div class="card-action">
+                <a id="next" class="right" href="#">Next</a>
+            </div>
         </div>
     </div>
 

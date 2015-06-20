@@ -24,3 +24,7 @@ Template.editHousePricingForm.helpers
     else
       datatest = {_id: this._id, advancedPayment: '', currency: '', price: null}
       return datatest
+
+Template.editHousePricingForm.events
+    'click #next': ->
+      Session.set("editHouseForm", "editHouseDetailsForm")
