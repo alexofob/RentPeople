@@ -2,7 +2,7 @@
     <div class="row">
         <div class="card-content black-text">
             <div class="col m4">
-                <span class="card-title grey-text text-darken-4">Listing Details</span>
+                <span class="card-title grey-text text-darken-4">Basic Details</span>
                 <p class="grey-text text-darken-2"> Provide basic information about your listing</p>
                 <span class="fa-stack fa-4x margin-top-20">
                     <i class="fa fa-circle fa-stack-2x teal-text text-lighten-2"></i>
@@ -10,12 +10,16 @@
                 </span>
             </div>
             <div class="col m8">
-                {{#pricingFormBlock schema=houseSchema action=action data=this}}
-                    {{> textInputHor field='city'}}
-                    {{> selectInput field='houseType' options=houseType}}
-                    {{> selectInput field='bedrooms' options=bedrooms}}
-                    {{> selectInput field='bathrooms' options=bathrooms}}
-                {{/pricingFormBlock}}
+                <div class="form-padding">
+                    {{#pricingFormBlock schema=houseSchema action=action data=this}}
+                        {{> textInputHor field='city'}}
+                        {{> selectInput field='houseType' options=houseType}}
+                        {{> selectInput field='bedrooms' options=bedrooms}}
+                        {{> selectInput field='bathrooms' options=bathrooms}}
+                    {{/pricingFormBlock}}
+                    {{> switchInput schema=houseSchema field='availability' options=availability data=this}}
+
+                </div>
             </div>
         </div>
     </div>
@@ -23,10 +27,11 @@
     <div class="row">
         <div class="col m12">
             <div class="card-action">
-                <a id="back" class="left" href="#">Back</a>
                 <a id="next" class="right" href="#">Next</a>
             </div>
         </div>
     </div>
 </template>
+
+
 

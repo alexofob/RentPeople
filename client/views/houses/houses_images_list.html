@@ -20,18 +20,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="card-action">
-                    <a id="delete-photo" href="#">
-                        <i class="mdi-action-delete"></i>
-                        Delete Photo
-                    </a>
-                </div>
             {{else}}
                 <div class="col s6 offset-s3">
                     {{> preloader }}
                 </div>
-
             {{/if}}
+            <div class="card-action">
+            <a id="delete-photo" href="#">
+                <i class="mdi-action-delete"></i>
+                Delete Photo
+            </a>
+        </div>
         </div>
     </div>
 </template>

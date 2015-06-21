@@ -19,20 +19,16 @@ template(name="editHouse")
 template(name="menuEditHouse")
     ul.collection
         li
-            a.collection-item(href='#' id='pricing')
-                p
-                    i.mdi-editor-attach-money.lead
-                    &nbsp; &nbsp; &nbsp;&nbsp; Pricing
-        li
             a.collection-item(href='#' id='details')
                 p
                     i.mdi-action-list.lead
-                    &nbsp; &nbsp;&nbsp;&nbsp; Listing Details
+                    &nbsp; &nbsp;&nbsp;&nbsp; Basics
+
         li
-            a.collection-item(href='#' id='photo')
+            a.collection-item(href='#' id='description')
                 p
-                    i.mdi-editor-insert-photo.lead
-                    &nbsp; &nbsp;&nbsp;&nbsp; Photo
+                    i.mdi-action-description.lead
+                    &nbsp; &nbsp;&nbsp;&nbsp; Description
         li
             a.collection-item(href='#' id='location')
                 p
@@ -43,6 +39,17 @@ template(name="menuEditHouse")
                 p
                     i.mdi-maps-local-laundry-service.lead
                     &nbsp; &nbsp;&nbsp;&nbsp;Amenities
+        li
+            a.collection-item(href='#' id='photo')
+                p
+                    i.mdi-editor-insert-photo.lead
+                    &nbsp; &nbsp;&nbsp;&nbsp; Photo
+        li
+            a.collection-item(href='#' id='pricing')
+                p
+                    i.mdi-editor-attach-money.lead
+                    &nbsp; &nbsp; &nbsp;Pricing
+
 
 template(name="formEditHouse")
     .row

@@ -28,6 +28,16 @@
     overflow: hidden;
 }
 
+.switch label {
+    position: relative;
+    left: 0;
+    margin-bottom: 20px;
+}
+
+#form-button {
+    margin-top: 30px;
+}
+
 @media(min-width:768px) {
     #page-wrapper {
         position: inherit;

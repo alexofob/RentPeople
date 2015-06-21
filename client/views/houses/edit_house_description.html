@@ -1,0 +1,32 @@
+<template name="editHouseDescriptionForm">
+    <div class="row">
+        <div class="card-content black-text">
+            <div class="col m4">
+                <span class="card-title grey-text text-darken-4">Description</span>
+                <p class="grey-text text-darken-2"> Tell Tenants about your house. Highlight what is unique and special which should make them want to rent your house.</p>
+                <span class="fa-stack fa-4x margin-top-20">
+                    <i class="fa fa-circle fa-stack-2x teal-text text-lighten-2"></i>
+                    <i class="fa fa-file-text fa-stack-1x fa-inverse"></i>
+                </span>
+            </div>
+            <div class="col m8">
+                <div class="form-padding">
+                    {{> textInputHor schema=descriptionSchema field='title' data=houseDescription length="35" submitted=true}}
+                    {{> textArea schema=descriptionSchema field='content' data=houseDescription length="250" submitted=true}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col m12">
+            <div class="card-action">
+                <a id="back" class="left" href="#">Back</a>
+                <a id="next" class="right" href="#">Next</a>
+            </div>
+        </div>
+    </div>
+</template>
+
+
+

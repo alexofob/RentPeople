@@ -9,12 +9,14 @@ pricingSchemaObject =
       'USD'
       'EUR'
     ]
+    optional: true
 
   price:
     type: Number
     label: 'Price per Month'
     min: 0
     instructions: 'Please enter the price per month'
+    optional: true
 
   advancedPayment:
     type: String
@@ -27,7 +29,22 @@ pricingSchemaObject =
       '4 Year advanced Payment'
       '5 Year advanced Payment'
     ]
+    optional: true
 
+descriptionSchemaObject =
+  title:
+    type: String
+    label: "Listing Name"
+    max: 35
+    instructions: "Give clear and descriptive name"
+    optional: true
+
+  content:
+    type: String
+    label: "Summary Description"
+    max: 250
+    instructions: "Tell tenants what is unique about your house."
+    optional: true
 
 houseSchemaObject =
   city:
@@ -67,16 +84,38 @@ houseSchemaObject =
       '4 bathrooms'
       '5 bathrooms or more'
     ]
+    optional: true
+
+  availability:
+    type: Boolean
+    label: "Availability"
+    allowedValues: [
+      true
+      false
+    ]
 
   pricing:
     type: pricingSchemaObject
 
-@pricingSchema = new SimpleSchema(pricingSchemaObject)
-
-@houseSchema = new SimpleSchema(houseSchemaObject)
-
+  description:
+    type: descriptionSchemaObject
 
 
+pricingSchema = new SimpleSchema(pricingSchemaObject)
+
+@descriptionSchema = new SimpleSchema(descriptionSchemaObject)
+
+houseSchema = new SimpleSchema(houseSchemaObject)
+
+Template.listHouseForm.helpers
+  houseSchema: ->
+    return houseSchema
+
+  houseTypes: ->
+    return houseSchema._schema.houseType.allowedValues
+
+  bedrooms: ->
+    return houseSchema._schema.bedrooms.allowedValues
 
 
 Template.editHousePricingForm.helpers
@@ -101,3 +140,11 @@ Template.editHouseDetailsForm.helpers
 
   bathrooms: ->
     return houseSchema._schema.bathrooms.allowedValues
+
+  availability: ->
+    return houseSchema._schema.availability.allowedValues
+
+
+Template.editHouseDescriptionForm.helpers
+  descriptionSchema: ->
+    return descriptionSchema

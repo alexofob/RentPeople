@@ -9,10 +9,11 @@ Template.editHousePhotoForm.events
     if not file? then return
 
     #processImage and upload
-    imageResized = processImage file, 300, 300, (data) ->
+    imageResized = processImage file, 1365, 960, (data) ->
       img = new FS.File(data)
 
       img.metadata =
+        owner: Meteor.userId()
         houseId: t.data._id
         description: ""
 
