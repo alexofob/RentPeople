@@ -1,60 +1,32 @@
 <template name="editHouseAmenitiesForm">
-    {{#pricingFormBlock schema=pricingSchema action=action data=housePricing}}
-        {{> selectInput field='currency' options=currency}}
-        {{> priceInput field='price'}}
-        {{> selectInput field='advancedPayment' options=advancedPayment}}
-    {{/pricingFormBlock}}
+    <div class="row">
+        <div class="card-content black-text">
+            <div class="col m4">
+                <span class="card-title grey-text text-darken-4">Amenities</span>
+                <p class="grey-text text-darken-2"> Tell Tenants about your house. Highlight what is unique and special about your house to make it standout.</p>
+                <span class="fa-stack fa-4x margin-top-20">
+                    <i class="fa fa-circle fa-stack-2x teal-text text-lighten-2"></i>
+                    <i class="fa fa-lightbulb-o fa-stack-1x fa-inverse"></i>
+                </span>
+            </div>
+            <div class="col m8">
+                {{> checkbox schema=amenitiesSchema field='kitchen' data=this}}
+                {{> checkbox schema=amenitiesSchema field='waterHeater' data=this}}
+                {{> checkbox schema=amenitiesSchema field='swimmingPool' data=this}}
+                {{> checkbox schema=amenitiesSchema field='parkingSpace' data=this}}
+                {{> checkbox schema=amenitiesSchema field='elevator' data=this}}
+                {{> checkbox schema=amenitiesSchema field='furniture' data=this}}
+                {{> checkbox schema=amenitiesSchema field='gym' data=this}}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col m12">
+            <div class="card-action">
+                <a id="back" class="left" href="#">Back</a>
+                <a id="next" class="right" href="#">Next</a>
+            </div>
+        </div>
+    </div>
 </template>
-
-<!-- Reusable form block -->
-<template name="amenitiesFormBlock">
-    <form class='form-horizontal' id='editHousePricing' role="form">
-
-        <p>
-
-            {{#if invalid}}
-                <div class="alert alert-warning"><strong>Can't submit!</strong>
-                    There is <span class="badge">{{invalidCount}}</span> invalid field!
-                </div>
-            {{/if}}
-
-            {{#if failed}}
-                <div class="alert alert-danger">
-                    <strong>{{#if failedMessage}}{{failedMessage}}{{else}}There was a problem submitting the form!{{/if}}</strong>
-                </div>
-            {{/if}}
-
-            {{#if success}}
-                <div class="alert alert-success alert-dismissible" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <strong>Saved!</strong>
-                </div>
-            {{/if}}
-
-
-        </p>
-
-        {{!-- Using a helper to get form-level schema context --}}
-        {{> UI.contentBlock
-                context=context
-                data=data
-        }}
-
-        <p>
-
-            {{#if changed}}
-                {{#unless success}}
-                    <button type="submit" class="btn btn-md btn-primary">Save</button>
-                {{/unless}}
-            {{/if}}
-
-            {{#if loading}}
-                {{> spinner}}
-            {{/if}}
-
-        </p>
-
-    </form>
-</template>
-
-

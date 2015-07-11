@@ -20,7 +20,18 @@ ReactiveForms.createElement(
 )
 
 ReactiveForms.createElement(
+    template: 'checkbox'
+    validationEvent: 'change'
+)
+
+ReactiveForms.createElement(
     template: 'textInput'
+    validationEvent: 'keyup'
+)
+
+
+ReactiveForms.createElement(
+    template: 'textInputGeo'
     validationEvent: 'keyup'
 )
 
@@ -51,8 +62,22 @@ Template.switchInput.helpers
         else
             return ""
 
+Template.checkbox.helpers
+# Selects the stored item from the switch element
+    isChecked: (value) ->
+        if value
+            return "Checked"
+        else
+            return ""
+
 Template.textArea.helpers
     isActive: ->
         if this.data.content then "active"
     length: ->
         this.length
+
+Template.textInputGeo.helpers
+  isActive:  ->
+    if  this.data.address then "active"
+    else
+      return ""

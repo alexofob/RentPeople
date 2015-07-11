@@ -27,3 +27,5 @@ ccorcos:clientside-image-manipulation
 cfs:standard-packages
 cfs:gridfs
 cfs:graphicsmagick
+dburles:google-maps
+jeremy:geocomplete

@@ -3,8 +3,26 @@
     <div class="reactive-input-container">
 
         <div class="input-field col s12">
-            <input id="textfield" type="text" class="form-control reactive-element validate" value={{value}} length={{length}}>
-            <label class="{{isActive value}}" for="textfield">{{label}}</label>
+            <input id={{field}} type="text" class="form-control reactive-element validate" value={{value}}>
+            <label class="{{isActive value}}" for={{field}}>{{label}}</label>
+        </div>
+        {{#if submitted}}
+
+            {{#if errorMessage}}
+                <div class="col s10 red-text text-darken-1 small-font" role="alert">{{errorMessage}}</div>
+            {{/if}}
+
+        {{/if}}
+    </div>
+
+</template>
+
+<template name="textInputGeo">
+    <div class="reactive-input-container">
+
+        <div class="input-field col s12">
+            <input id={{field}} type="text" class="form-control reactive-element validate" value={{value}} name={{name}}>
+            <label class="{{isActive}}" for={{field}}>{{label}}</label>
         </div>
         {{#if submitted}}
 
@@ -151,4 +169,32 @@
 
 </template>
 
+<!-- Reusable select element -->
+<template name="checkbox">
+
+    <div class="reactive-input-container">
+
+        <div class="input-field col s12">
+
+            <input type="checkbox" class="filled-in" id={{field}} {{isChecked value}} />
+            <label for={{field}}>{{label}}</label>
+
+            {{!-- Hide messages if the surrounding form was successfully submitted --}}
+            {{#unless success}}
+
+            {{!-- If submitted and not success, show error messages --}}
+                {{#if submitted}}
+
+                    {{#if errorMessage}}
+                        <div class="col s10 red-text text-darken-1 small-font" role="alert">{{errorMessage}}</div>
+                    {{/if}}
+
+                {{/if}}
+
+            {{/unless}}
+
+        </div>
+    </div>
+
+</template>
 

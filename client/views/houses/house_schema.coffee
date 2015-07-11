@@ -46,6 +46,126 @@ descriptionSchemaObject =
     instructions: "Tell tenants what is unique about your house."
     optional: true
 
+
+locationSchemaObject =
+  houseNumber:
+    type: String
+    label: "House Number"
+    max: 100
+    optional: true
+
+  surburb:
+    type: String
+    label: "Enter a location"
+    max: 50
+    optional: true
+
+  address:
+    type: String
+    label: "Address"
+    max: 300
+    optional: true
+
+
+GeoLocationSchemaObject =
+  url:
+    type: String
+    optional: true
+
+  latLng:
+    type: Object
+    optional: true
+
+  route:
+    type: String
+    optional: true
+
+  neighborhood:
+    type: String
+    optional: true
+
+  sublocality:
+    type: String
+    optional: true
+
+  locality:
+    type: String
+    optional: true
+
+  region:
+    type: String
+    optional: true
+
+  country:
+    type: String
+    optional: true
+
+amenitiesSchemaObject =
+  airCondition:
+    type: Boolean
+    label: "Air Condition"
+    allowedValues: [
+      true
+      false
+    ]
+
+  waterHeater:
+    type: Boolean
+    label: "Water Heater"
+    allowedValues: [
+      true
+      false
+    ]
+
+  cableTV:
+    type: Boolean
+    label: "Cable TV"
+    allowedValues: [
+      true
+      false
+    ]
+
+  kitchen:
+    type: Boolean
+    label: "Kitchen"
+    allowedValues: [
+      true
+      false
+    ]
+
+  swimmingPool:
+    type: Boolean
+    label: "Swimming Pool"
+    allowedValues: [
+      true
+      false
+    ]
+
+  parkingSpace:
+    type: Boolean
+    label: "Parking Space"
+    allowedValues: [
+      true
+      false
+    ]
+
+  gym:
+    type: Boolean
+    label: "Gym"
+    allowedValues: [
+      true
+      false
+    ]
+
+  elevator:
+    type: Boolean
+    label: "Elevator in Building"
+    allowedValues: [
+      true
+      false
+    ]
+
+
 houseSchemaObject =
   city:
     type: String
@@ -100,10 +220,26 @@ houseSchemaObject =
   description:
     type: descriptionSchemaObject
 
+  location:
+    type: locationSchemaObject
+
+  geoLocation:
+    type: GeoLocationSchemaObject
+
+  amenities:
+    type: amenitiesSchemaObject
+
+
 
 pricingSchema = new SimpleSchema(pricingSchemaObject)
 
 @descriptionSchema = new SimpleSchema(descriptionSchemaObject)
+
+@locationSchema = new SimpleSchema(locationSchemaObject)
+
+@GeoLocationSchema = new SimpleSchema(GeoLocationSchemaObject)
+
+@amenitiesSchema = new SimpleSchema(AmenitiesSchemaObject)
 
 houseSchema = new SimpleSchema(houseSchemaObject)
 
@@ -148,3 +284,7 @@ Template.editHouseDetailsForm.helpers
 Template.editHouseDescriptionForm.helpers
   descriptionSchema: ->
     return descriptionSchema
+
+Template.editHouseAmenitiesForm.helpers
+  amenitiesSchema: ->
+    return amenitiesSchema

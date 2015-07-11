@@ -16,7 +16,7 @@ Template.editHouseDescriptionForm.events
   'click #back': ->
     Session.set("editHouseForm", "editHouseDetailsForm")
 
-  'change #textfield': (e,t)->
+  'change #title': (e,t)->
     houseId = t.data._id
     title = event.target.value
 

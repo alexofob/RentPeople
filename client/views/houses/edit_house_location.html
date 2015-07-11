@@ -1,60 +1,46 @@
 <template name="editHouseLocationForm">
-    {{#pricingFormBlock schema=pricingSchema action=action data=housePricing}}
-        {{> selectInput field='currency' options=currency}}
-        {{> priceInput field='price'}}
-        {{> selectInput field='advancedPayment' options=advancedPayment}}
-    {{/pricingFormBlock}}
+    <div class="row">
+        <div class="card-content black-text">
+            <div class="row">
+                <div class="col m4">
+                    <span class="card-title grey-text text-darken-4">Location</span>
+                    <p class="grey-text text-darken-2"> Show Tenants where your house is located. Add an address and use the map to pin point the exact location of your house.</p>
+                    <span class="fa-stack fa-4x margin-top-20">
+                        <i class="fa fa-circle fa-stack-2x teal-text text-lighten-2"></i>
+                        <i class="fa fa-map-marker fa-stack-1x fa-inverse"></i>
+                    </span>
+                </div>
+                <div class="col m8">
+
+                    {{> textInputHor schema=locationSchema field='surburb' data=houseLocation submitted=true}}
+
+                    {{> textInputHor schema=locationSchema field='houseNumber' data=houseLocation submitted=true}}
+
+                    <div id="auto-complete">
+                        {{> textInputGeo schema=locationSchema field='address' name='formatted_address' data=houseLocation submitted=true}}
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="map-container"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col m12">
+            <div class="card-action">
+                <a id="back" class="left" href="#">Back</a>
+                <a id="next" class="right" href="#">Next</a>
+            </div>
+        </div>
+    </div>
 </template>
 
-<!-- Reusable form block -->
-<template name="locationFormBlock">
-    <form class='form-horizontal' id='editHousePricing' role="form">
-
-        <p>
-
-            {{#if invalid}}
-                <div class="alert alert-warning"><strong>Can't submit!</strong>
-                    There is <span class="badge">{{invalidCount}}</span> invalid field!
-                </div>
-            {{/if}}
-
-            {{#if failed}}
-                <div class="alert alert-danger">
-                    <strong>{{#if failedMessage}}{{failedMessage}}{{else}}There was a problem submitting the form!{{/if}}</strong>
-                </div>
-            {{/if}}
-
-            {{#if success}}
-                <div class="alert alert-success alert-dismissible" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <strong>Saved!</strong>
-                </div>
-            {{/if}}
 
 
-        </p>
 
-        {{!-- Using a helper to get form-level schema context --}}
-        {{> UI.contentBlock
-                context=context
-                data=data
-        }}
-
-        <p>
-
-            {{#if changed}}
-                {{#unless success}}
-                    <button type="submit" class="btn btn-md btn-primary">Save</button>
-                {{/unless}}
-            {{/if}}
-
-            {{#if loading}}
-                {{> spinner}}
-            {{/if}}
-
-        </p>
-
-    </form>
-</template>
 
 
